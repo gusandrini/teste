@@ -75,8 +75,7 @@ export const Rodape = () => {
 
           <div className="contact-info">
             <h3>Contato</h3>
-            <p>Email: <Link href="mailto:contato@empresa.com">contato@empresa.com</Link></p>
-            <p>Telefone: +55 11 99999-9999</p>
+            <p>Email: <Link href="mailto:neoenergy588@gmail.com">neoenergy588@gmail.com</Link></p>
           </div>
         </div>
         
