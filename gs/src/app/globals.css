@@ -198,39 +198,81 @@
 @layer components {
     /* Título da seção de participantes */
     .titulo-participantes {
-      @apply text-4xl font-bold text-blue-900 text-center my-8;
+        @apply text-4xl font-bold text-blue-900 text-center my-8;
     }
   
     /* Contêiner de todos os cards */
     .participantes {
-      @apply grid grid-cols-3 gap-6 px-4;
+        @apply grid grid-cols-3 gap-6 px-4;
     }
   
     /* Card de cada participante */
     .participante-card {
-      @apply bg-white m-10 p-10 rounded-lg shadow-lg text-center transition-all hover:shadow-2xl;
+        @apply bg-white m-10 p-10 rounded-lg shadow-lg text-center transition-all hover:shadow-2xl;
     }
   
     /* Nome do participante */
     .participante-nome {
-      @apply text-2xl font-semibold text-blue-800 mb-2;
+        @apply text-2xl font-semibold text-blue-800 mb-2;
     }
   
     /* RM do participante */
     .participante-rm {
-      @apply text-lg text-gray-600 mb-4;
+        @apply text-lg text-gray-600 mb-4;
     }
   
     /* Links do participante */
     .participante-card a {
-      @apply text-blue-600 hover:text-blue-800 transition-colors block mb-2;
+        @apply text-blue-600 hover:text-blue-800 transition-colors block mb-2;
     }
   
     /* Estilo das imagens (se forem usadas) */
     .participante-imagem {
-      @apply w-full h-40 object-cover rounded-lg mb-4;
+        @apply w-full h-40 object-cover rounded-lg mb-4;
     }
-  }
+
+    /* Responsividade para tablets */
+    @media (max-width: 1024px) {
+        .participantes {
+            @apply grid-cols-2; /* 2 colunas em tablets */
+        }
+
+        .participante-card {
+            @apply m-6 p-6; /* Menor margem e padding em tablets */
+        }
+
+        .participante-imagem {
+            @apply h-32; /* Ajusta a altura das imagens */
+        }
+    }
+
+    /* Responsividade para smartphones */
+    @media (max-width: 768px) {
+        .titulo-participantes {
+            @apply text-3xl; /* Ajusta o tamanho do título em smartphones */
+        }
+
+        .participantes {
+            @apply grid-cols-1; /* 1 coluna em smartphones */
+        }
+
+        .participante-card {
+            @apply m-4 p-4; /* Menor margem e padding em smartphones */
+        }
+
+        .participante-imagem {
+            @apply h-24; /* Ajusta a altura das imagens */
+        }
+    }
+
+    /* Responsividade para desktops */
+    @media (min-width: 1025px) {
+        .participantes {
+            @apply grid-cols-3; /* 3 colunas em desktops */
+        }
+    }
+}
+
   
 /* Estilos principais da página */
 @layer components {
