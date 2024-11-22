@@ -82,7 +82,7 @@ const Login = () => {
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
           className="login-input"
-          placeholder='senha'
+          placeholder='Senha'
           title='senha'
         />
         <button type="submit" className="login-button">Entrar</button>
