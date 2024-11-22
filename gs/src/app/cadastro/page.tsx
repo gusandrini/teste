@@ -1,6 +1,6 @@
 "use client";
 
-import { TipoCadastro } from '@/types/types';
+import { TipoCadastro } from '@/types';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react';
@@ -12,7 +12,6 @@ export default function Cadastro() {
     id_usuario: 0,
     nome: '',
     email: '',
-    cpf: '',
     senha: '',
   });
 
@@ -20,7 +19,7 @@ export default function Cadastro() {
     e.preventDefault();
 
     try {
-      const response = await fetch('http://localhost:8080/', {
+      const response = await fetch('http://localhost:8080/usuarios', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -31,7 +30,6 @@ export default function Cadastro() {
           id_usuario: 0,
           nome: '',
           email: '',
-          cpf: '',
           senha: '',
         });
         setMensagem('Cadastro realizado com sucesso!');
@@ -73,17 +71,6 @@ export default function Cadastro() {
           required
           className="form-input"
           pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$"
-        />
-        <input
-          type="text"
-          id="cpf"
-          name="cpf"
-          placeholder="CPF"
-          value={formData.cpf}
-          onChange={(e) => setFormData({ ...formData, cpf: e.target.value })}
-          required
-          className="form-input"
-          pattern="\d{3}\.?\d{3}\.?\d{3}-?\d{2}"
         />
         <input
           type="password"

@@ -23,7 +23,7 @@ const Login = () => {
 
     const chamadaApi = async () => {
       try {
-        const response = await fetch('http://localhost:8080/');
+        const response = await fetch('http://localhost:8080/usuarios');
         if (!response.ok) {
           throw new Error('Erro ao buscar dados');
         }
