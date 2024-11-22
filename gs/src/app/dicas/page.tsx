@@ -4,7 +4,7 @@ const Dicas = () => {
   return (
     <div>
 
-      <h1>Dicas para Economizar Energia</h1>
+      <h1 className='titulo-dicas'>Dicas para Economizar Energia</h1>
       <div>
         <div className="dica">
           <h2>Monitore seu consumo</h2>

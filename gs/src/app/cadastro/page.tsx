@@ -94,7 +94,6 @@ export default function Cadastro() {
           onChange={(e) => setFormData({ ...formData, senha: e.target.value })}
           required
           className="form-input"
-          pattern=".{8,}"
         />
         <button type="submit" className="register-button">Cadastrar</button>
         <p className="register-footer">

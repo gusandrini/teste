@@ -71,6 +71,8 @@ const Login = () => {
           onChange={(e) => setEmail(e.target.value)}
           pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$"
           className="login-input"
+          placeholder="Digite seu e-mail"
+          title="email"
         />
         <input
           type="password"
@@ -80,6 +82,8 @@ const Login = () => {
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
           className="login-input"
+          placeholder='senha'
+          title='senha'
         />
         <button type="submit" className="login-button">Entrar</button>
         <p className="login-text">

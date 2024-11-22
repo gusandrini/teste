@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const Home = () => {
   return (
-    <div>
+    <div className='home'>
       <h1>Bem-vindo ao NeoEnergy: Energia Sustentável na Sua Mão</h1>
       <p>
         O NeoEnergy oferece uma maneira inteligente e consciente de consumir energia. Nossa plataforma ajuda você a identificar desperdícios, 
