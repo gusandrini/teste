@@ -59,9 +59,9 @@ const Login = () => {
   };
 
   return (
-    <div className="wrapper">
-      <h2 className="login_h2">Bem-vindo!</h2>
-      <form onSubmit={handleSubmit} className="input-area">
+    <div className="login-container">
+      <h2 className="login-title">Bem-vindo!</h2>
+      <form onSubmit={handleSubmit} className="login-form">
         <input
           type="email"
           id="idEmail"
@@ -70,6 +70,7 @@ const Login = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(?:\.[a-zA-Z]{2,})?$"
+          className="login-input"
         />
         <input
           type="password"
@@ -78,14 +79,17 @@ const Login = () => {
           required
           value={senha}
           onChange={(e) => setSenha(e.target.value)}
+          className="login-input"
         />
-        <button type="submit" className="b_login">Entrar</button>
-        <p>
-          Não tem uma conta?
-          <Link href="/cadastro" className="link_cadastro">Cadastre-se</Link>
+        <button type="submit" className="login-button">Entrar</button>
+        <p className="login-text">
+          Não tem uma conta? 
+          <Link href="/cadastro" className="login-link">Cadastre-se</Link>
         </p>
       </form>
-      <p id="mensagem" className={mensagem.includes('sucesso') ? 'sucesso' : 'erro'}>{mensagem}</p>
+      <p id="mensagem" className={`login-message ${mensagem.includes('sucesso') ? 'message-success' : 'message-error'}`}>
+        {mensagem}
+      </p>
     </div>
   );
 };
