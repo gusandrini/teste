@@ -1,5 +1,5 @@
 "use client";
-import { TipoCadastro } from '@/types/types'; // Importa o tipo de dados para o usuário
+import { TipoCadastro } from '@/types'; // Importa o tipo de dados para o usuário
 import Link from 'next/link'; // Importa o Link do Next.js para navegação
 import { useRouter } from 'next/navigation'; // Importa o hook do Next.js para navegação
 import React, { useEffect, useState } from 'react'; // Importa React e hooks necessários
@@ -9,10 +9,10 @@ export default function EditarExcluirUsuario() {
   const navigate = useRouter();
   const [isEditMode, setIsEditMode] = useState(false);
   const [usuario, setUsuario] = useState<TipoCadastro>({
+    idUsuario: 0,
     id_usuario: 0,
     nome: "",
     email: "",
-    cpf: "",
     senha: "",
   });
 
@@ -31,7 +31,7 @@ export default function EditarExcluirUsuario() {
   // Função para chamar a API e recuperar os dados do usuário
   const chamadaApi = async () => {
     try {
-      const response = await fetch('http://localhost:8080/usuario');
+      const response = await fetch('http://localhost:8080/usuarios');
       const data = await response.json();
       if (data) {
         setUsuario(data);
@@ -53,7 +53,7 @@ export default function EditarExcluirUsuario() {
     evento.preventDefault();
 
     try {
-      const url = `http://localhost:8080/usuario/${usuario.id_usuario}`;
+      const url = `http://localhost:8080/usuarios/${usuario.idUsuario}`;
 
       const response = await fetch(url, {
         method: "PUT",
@@ -61,10 +61,10 @@ export default function EditarExcluirUsuario() {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({
+          idUsuario: usuario.idUsuario,
           id_usuario: usuario.id_usuario,
           nome: usuario.nome,
           email: usuario.email,
-          cpf: usuario.cpf,
           senha: usuario.senha,
         })
       });
@@ -82,10 +82,10 @@ export default function EditarExcluirUsuario() {
         localStorage.setItem("usuario", JSON.stringify(usuario));
 
         setUsuario({
+          idUsuario: 0,
           id_usuario: 0,
           nome: "",
           email: "",
-          cpf: "",
           senha: "",
         });
         setIsEditMode(false);
@@ -107,7 +107,7 @@ export default function EditarExcluirUsuario() {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/usuario/${usuario.id_usuario}`, {
+      const response = await fetch(`http://localhost:8080/usuarios/${usuario.idUsuario}`, {
         method: 'DELETE',
       });
 
@@ -150,18 +150,6 @@ export default function EditarExcluirUsuario() {
             value={usuario.email}
             onChange={handleChange}
             required
-            pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
-          />
-
-          <label htmlFor="idCpf">CPF:</label>
-          <input
-            type="text"
-            id="idCpf"
-            name="cpf"
-            placeholder="CPF"
-            value={usuario.cpf}
-            onChange={handleChange}
-            required
           />
 
           <label htmlFor="idSenha">Senha:</label>
@@ -173,8 +161,6 @@ export default function EditarExcluirUsuario() {
             value={usuario.senha}
             onChange={handleChange}
             required
-            pattern=".{8,}"
-            title="A senha deve ter no mínimo 8 caracteres."
           />
 
           <div className="atualiza">
