@@ -18,7 +18,7 @@ const Login = () => {
   useEffect(() => {
     const user = localStorage.getItem("usuario");
     if (user) {
-      navigate.push("/");
+      navigate.push("");
     }
 
     const chamadaApi = async () => {

@@ -1,16 +1,13 @@
 import Link from 'next/link';
 import React from 'react';
-import Image from 'next/image';
-import Israel from '@/Image/israel.jpg';
-import Luketa from '@/Image/l.jpg';
-import Marcos from '@/Image/marcos.jpg';
+// import Image from 'next/image';
+// import Israel from '@/Image/israel.jpg'
+// import Luketa from '@/Images/l.jpg';
+// import Marcos from '@/Image/marcos.jpg';
 
 const Participantes = () => {
   return (
     <div>
-      <div className="paginas">
-        <Link href="/">Home</Link>/<Link href="/participantes">Participantes</Link>
-      </div>
 
       <div className="titulo-participantes">
         <h1>Participantes</h1>
@@ -19,7 +16,7 @@ const Participantes = () => {
       <div className="participantes">
         {/* Card do Israel */}
         <div className="participante-card">
-          <Image alt="Israel" src={Israel} className="participante-imagem" />
+          {/* <Image alt="Israel" src={Israel} className="participante-imagem" /> */}
           <p className="participante-nome">Israel Rodrigues</p>
           <p className="participante-rm">RM: 557964</p>
           <p>
@@ -32,7 +29,7 @@ const Participantes = () => {
 
         {/* Card do Lucas */}
         <div className="participante-card">
-          <Image alt="Lucas" src={Luketa} className="participante-imagem" />
+          {/* <Image alt="Lucas" src={Luketa} className="participante-imagem" /> */}
           <p className="participante-nome">Luketa</p>
           <p className="participante-rm">RM: ??????</p>
           <p>
@@ -45,7 +42,7 @@ const Participantes = () => {
 
         {/* Card do Marcos */}
         <div className="participante-card">
-          <Image alt="Marcos" src={Marcos} className="participante-imagem" />
+          {/* <Image alt="Marcos" src={Marcos} className="participante-imagem" /> */}
           <p className="participante-nome">Marcos Vinicius</p>
           <p className="participante-rm">RM: ??????</p>
           <p>
